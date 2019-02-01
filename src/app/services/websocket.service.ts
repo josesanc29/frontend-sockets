@@ -34,6 +34,7 @@ export class WebsocketService {
 
       console.log('Emitiendo', evento);
       // emit('EVENTO', payload, callback?)
+      // Si se envia el payload (data) es obligatorio enviar un callback.
       this.socket.emit( evento, payload, callback );
 
     }
