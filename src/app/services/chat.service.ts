@@ -4,6 +4,7 @@ import { WebsocketService } from './websocket.service';
 @Injectable({
   providedIn: 'root'
 })
+// @Injectable()
 export class ChatService {
 
   constructor(
@@ -13,7 +14,7 @@ export class ChatService {
     sendMessage( mensaje: string ) {
 
       const payload = {
-        de: 'Fernando',
+        de: this.wsService.obtenerUsuario().nombre,
         cuerpo: mensaje
       };
 
@@ -23,6 +24,10 @@ export class ChatService {
 
     getMessages() {
       return this.wsService.listen('mensaje-nuevo');
+    }
+    
+    getMessagesPrivados() {
+      return this.wsService.listen('mensajes-privados');
     }
 
 }
