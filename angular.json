@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "frontbase1": {
+    "jose-front": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/frontbase1",
+            "outputPath": "dist/jose-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,7 +25,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "es5BrowserSupport": true
           },
           "configurations": {
             "production": {
@@ -43,25 +44,32 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "frontbase1:build"
+            "browserTarget": "jose-front:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "frontbase1:build:production"
+              "browserTarget": "jose-front:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "frontbase1:build"
+            "browserTarget": "jose-front:build"
           }
         },
         "test": {
@@ -95,19 +103,20 @@
         }
       }
     },
-    "frontbase1-e2e": {
+    "jose-front-e2e": {
       "root": "e2e/",
       "projectType": "application",
+      "prefix": "",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "frontbase1:serve"
+            "devServerTarget": "jose-front:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "frontbase1:serve:production"
+              "devServerTarget": "jose-front:serve:production"
             }
           }
         },
@@ -123,5 +132,5 @@
       }
     }
   },
-  "defaultProject": "frontbase1"
+  "defaultProject": "jose-front"
 }

@@ -12,5 +12,9 @@ export class MensajesComponent implements OnInit {
 
   ngOnInit() {
   }
+  salirChat() {
+    this.wsService.desloginWebSock();
+  }
+
 
 }

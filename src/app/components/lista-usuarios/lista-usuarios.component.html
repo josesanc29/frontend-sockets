@@ -1,3 +1,13 @@
-<p>
-  lista-usuarios works!
-</p>
+<h3>Usuarios conectados  al chat...</h3>
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let usuario of usuariosActivosObs | async">
+    <span>
+        <small>{{usuario.nombre}}</small>
+    </span>
+    
+  <br>
+    <span>
+    <small>{{usuario.sala}}</small>
+  </span>
+  </li>
+</ul>
